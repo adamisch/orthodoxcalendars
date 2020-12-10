@@ -1,4 +1,5 @@
-from .verses import end_verse
+from .verses import get_verses, end_verse
+import copy
 import pandas as pd
 
 def get_text(verses, key, bible):
@@ -25,3 +26,14 @@ def get_text(verses, key, bible):
         return verses
     else:
         return pd.DataFrame({'text': [" "]})
+
+def text_columns(df, key, bible):
+    """Create new columns with text of each verse in each column"""
+    static_colnames = copy.deepcopy(df.columns.tolist())
+    for col in static_colnames:
+        if col.startswith("Reading"):
+            text_number = col[len("Reading"):]
+            reading_name = "Text" + text_number
+            df[reading_name] = [" ".join(get_text(get_verses(x), key, bible)['text'])
+                                for x in df[col]]
+    return df
