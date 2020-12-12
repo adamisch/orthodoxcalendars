@@ -8,5 +8,7 @@ I personally find it unnecessarily cumbersome to manually look up the readings e
 
 (Assembling the calendar is a lot more work than just the scraping, as it involves formatting, noting holidays, etc.)
 
+These still involve at least a bit of manual work, but here's the basic idea:
+
 * ```goa_example.py:``` Calendar scraping for the Greek Orthodox Church in America
-* ```oca_example.py```: Calendar scraping for the Orthodox Church in America (*work in progress*)
+* ```oca_example.py```: Calendar scraping for the Orthodox Church in America (*incomplete*)
