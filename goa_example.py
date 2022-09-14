@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Created on Wed Dec  9 22:09:29 2020
 
@@ -69,13 +68,13 @@ df_goa_manual = df_goa_manual.replace({np.nan: None})
 # df_goa_manual= copy.deepcopy(df_goa)
 ### End Work in progress ###
 
-df_goa_manual=text.text_columns(df_goa_manual, key = key, bible = kjv)
+df_goa_manual = text.text_columns(df_goa_manual, key=key, bible=kjv)
 
-cal_df=copy.deepcopy(df_goa_manual)
+cal_df = copy.deepcopy(df_goa_manual)
 
-cal_df=cal_df[['Date', 'Reading1', 'Text1', 'Reading2', 'Text2',
+cal_df = cal_df[['Date', 'Reading1', 'Text1', 'Reading2', 'Text2',
                  'Reading3', 'Text3', 'Reading4', 'Text4', 'Reading5',
-                 'Text5', 'Reading6', 'Text6', 'Reading7', 'Text7']]
+                'Text5', 'Reading6', 'Text6', 'Reading7', 'Text7']]
 
 cal_df = cal_df.stack().reset_index()
 cal_df = cal_df[cal_df[0] != " "]

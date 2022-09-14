@@ -1,3 +1,14 @@
+import pandas as pd
+import copy
+from orthodoxcalendars import text
+import numpy as np
+
+key = pd.read_csv(
+    "https://raw.githubusercontent.com/adamisch/orthodoxcalendars/main/bible_data/key_english.csv")
+
+kjv = pd.read_csv(
+    "https://raw.githubusercontent.com/adamisch/orthodoxcalendars/main/bible_data/t_kjv.csv")
+
 oca = pd.read_csv(
     "https://raw.githubusercontent.com/adamisch/orthodoxcalendars/main/oca_files/calendaroca.csv")
 
@@ -17,7 +28,7 @@ oca.rename(dict(zip(range(0, 10), ['Reading'+str(x) for x in range(1, 11)])),
            axis=1, inplace=True)
 
 ### Work in progress ###
-oca=text.text_columns(oca, key = key, bible = kjv)
+oca = text.text_columns(oca, key=key, bible=kjv)
 ### end work in progress ###
 
 cal_df_oca = copy.deepcopy(oca).reset_index()
